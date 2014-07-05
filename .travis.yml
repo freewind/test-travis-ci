@@ -11,6 +11,15 @@ before_script:
 - unzip -q play-${PLAY_VERSION}.zip
 script: play-${PLAY_VERSION}/play test
 after_success:
-- ./scripts/update_build_version.sh
+- "./scripts/update_build_version.sh"
 notifications:
   email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: NMhwXyTP3f8yaanRuMUbtLn9aOsHLAz/GCOCCnEOeAUIF5YvtwI4mgtuxolJ5Zb8/UWRy+IKsXdSTQ7mZdZqDGz1w+yO74mNcvjAbTUlgEuNY5lXWugiiYz2qcNievOk7z+F8g20x1ngVoIGta6CZw9rctPj41w2/ZCGyr6upiw=
+  app: test-travis-ci
+  on:
+    repo: freewind/test-travis-ci
+  run:
+  - "play dist"
