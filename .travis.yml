@@ -21,5 +21,3 @@ deploy:
   app: test-travis-ci
   on:
     repo: freewind/test-travis-ci
-  run:
-  - "play dist"
