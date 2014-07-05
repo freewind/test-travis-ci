@@ -9,10 +9,10 @@ object Application extends Controller {
     Ok(views.html.index("Your new application is ready."))
   }
 
-  def hello = Action(parse.text) { request =>
-    val content = request.body
-    val name = Json.parse(content) \ "name"
-    Ok( s"""{$name:"welcome"}""").as("application/json")
+  def hello = Action(parse.json) { request =>
+    val name = request.body \ "name"
+    val json = Json.obj(name.as[String] -> "welcome")
+    Ok(json)
   }
 
 }
