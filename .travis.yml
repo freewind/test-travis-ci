@@ -11,7 +11,6 @@ before_script:
 - unzip -q play-${PLAY_VERSION}.zip
 script: play-${PLAY_VERSION}/play test
 after_success:
-- ./scripts/test-travis.sh
-#- ./scripts/update_build_version.sh
+- ./scripts/update_build_version.sh
 notifications:
   email: false

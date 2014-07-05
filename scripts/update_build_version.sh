@@ -1,17 +1,30 @@
 #!/bin/sh
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-  echo -e "Starting to update .build_version file\n"
 
-  #go to home and setup git
-  cd $HOME
-  git config --global user.email "travis@travis-ci.org"
-  git config --global user.name "Travis"
+    echo Starting to update .build_version file
 
-  git remote add token https://${GH_TOKEN}@github.com/freewind/test-travis-ci.git
+    pwd
 
-  git add -f .
-  git commit -m "Travis update .build_version file to $TRAVIS_BUILD_NUMBER"
-  git push -fq token master > /dev/null
+    git checkout master
 
-  echo -e "Build version updated to $TRAVIS_BUILD_NUMBER\n"
+    echo $TRAVIS_BUILD_NUMBER > .build_version
+    cat .build_version
+
+    git add -f .build_version
+
+    git status
+
+    git config --global user.email "travis-ci@travis-ci.org"
+    git config --global user.name "travis-ci"
+    git commit -m "update .build_version to $TRAVIS_BUILD_NUMBER"
+
+    git --no-pager log --stat -3
+
+    git remote add token https://${GH_TOKEN}@github.com/freewind/test-travis-ci.git
+    git push -fq token master
+
+    git status
+
+    echo done updating .build_version
+
 fi
