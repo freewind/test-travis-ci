@@ -1,6 +1,8 @@
 #!/bin/sh
 pwd
 
+git checkout master
+
 echo my_version > .build_version
 cat .build_version
 
