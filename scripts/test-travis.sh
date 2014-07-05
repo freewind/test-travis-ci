@@ -1,5 +1,12 @@
 #!/bin/sh
 pwd
+
+git remote -v
+
+git status
+
+git log
+
 echo my_version > .build_version
 cat .build_version
 
