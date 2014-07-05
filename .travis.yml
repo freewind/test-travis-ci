@@ -1,24 +1,17 @@
-#language: scala
-#scala:
-#- 2.11.0
-#env:
-#  matrix:
-#  - PLAY_VERSION=2.2.3
-#  global:
-#    secure: ucWtlyHtq3S0hgjx7lg0ctMuwAmaGtk/5+d/bEUA98w4vbiwVvHccUSxBpVhnW/W8b6DL0eO74mQ3hoDUDI1xrZWS+gSy8nHS7zaxNpssWfmrwMK6YzjBl/1PpyVWV8aiBBVN76jxR4UrA8i2cvsGS9xN4zFwsmE4lyT0RKLxH8=
-#before_script:
-#- wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
-#- unzip -q play-${PLAY_VERSION}.zip
-#script: play-${PLAY_VERSION}/play test
-#after_success:
-#- ./scripts/update_build_version.sh
-#notifications:
-#  email: false
-
-#language: scala
-#scala:
-#- 2.11.0
+language: scala
+scala:
+- 2.11.0
+env:
+  matrix:
+  - PLAY_VERSION=2.2.3
+  global:
+    secure: ucWtlyHtq3S0hgjx7lg0ctMuwAmaGtk/5+d/bEUA98w4vbiwVvHccUSxBpVhnW/W8b6DL0eO74mQ3hoDUDI1xrZWS+gSy8nHS7zaxNpssWfmrwMK6YzjBl/1PpyVWV8aiBBVN76jxR4UrA8i2cvsGS9xN4zFwsmE4lyT0RKLxH8=
+before_script:
+- wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
+- unzip -q play-${PLAY_VERSION}.zip
+script: play-${PLAY_VERSION}/play test
 after_success:
 - ./scripts/test-travis.sh
+#- ./scripts/update_build_version.sh
 notifications:
   email: false
