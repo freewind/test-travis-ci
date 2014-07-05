@@ -15,9 +15,9 @@
 #notifications:
 #  email: false
 
-language: scala
-scala:
-- 2.11.0
+#language: scala
+#scala:
+#- 2.11.0
 after_success:
 - ./scripts/test-travis.sh
 notifications:
