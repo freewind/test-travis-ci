@@ -5,6 +5,7 @@
 # Home page
 GET     /                           controllers.Application.index
 GET     /diagnostic/version         controllers.Diagnostic.version
+GET     /diagnostic/paths           controllers.Diagnostic.paths
 
 POST    /hello                      controllers.Application.hello
 

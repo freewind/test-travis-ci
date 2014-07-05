@@ -1,2 +1,8 @@
 #!/bin/sh
-echo $1 > conf/.build_version
+buildVersion = $1
+
+echo -e "build version: $buildVersion"
+
+echo $buildVersion > conf/.build_version
+
+cat conf/.build_version
