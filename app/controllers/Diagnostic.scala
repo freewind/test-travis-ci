@@ -6,7 +6,7 @@ import org.apache.commons.io.FileUtils
 import java.io.File
 
 object Diagnostic extends Controller with DiagnosticController with VersionFileFinder {
-  override def getVersionFile = Some(Play.current.getFile(".build_version")).filter(_.isFile)
+  override def getVersionFile = Some(Play.current.getFile("conf/.build_version")).filter(_.isFile)
 }
 
 

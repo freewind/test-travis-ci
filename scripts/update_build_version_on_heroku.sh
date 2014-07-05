@@ -1,2 +1,2 @@
 #!/bin/sh
-echo $1 > .build_version
+echo $1 > conf/.build_version
