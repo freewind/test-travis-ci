@@ -1,4 +1,4 @@
 #!/bin/sh
-git remote -v
-git status
-git log
+pwd
+echo my_version > .build_version
+cat .build_version
