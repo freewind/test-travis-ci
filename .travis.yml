@@ -1,21 +1,16 @@
-language: scala # to trigger the build on JVM worker ('language: java' works the same)
+language: scala
 scala:
-  - "2.11.0"
+- 2.11.0
 env:
-  - PLAY_VERSION=2.2.3 
-before_script: 
-  - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
-  - unzip -q play-${PLAY_VERSION}.zip
+  matrix:
+  - PLAY_VERSION=2.2.3
+  global:
+    secure: ucWtlyHtq3S0hgjx7lg0ctMuwAmaGtk/5+d/bEUA98w4vbiwVvHccUSxBpVhnW/W8b6DL0eO74mQ3hoDUDI1xrZWS+gSy8nHS7zaxNpssWfmrwMK6YzjBl/1PpyVWV8aiBBVN76jxR4UrA8i2cvsGS9xN4zFwsmE4lyT0RKLxH8=
+before_script:
+- wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
+- unzip -q play-${PLAY_VERSION}.zip
 script: play-${PLAY_VERSION}/play test
 after_success:
-  - echo $TRAVIS_JOB_ID > .build_version
-  - cat .build_version
-  - git commit -a -m "Committed by Travis-CI build number: $TRAVIS_JOB_ID"
-  - git push origin master
-  - git status
-  - git log
+- ./scripts/update_build_version.sh
 notifications:
-  # Email notifications are disabled to not annoy anybody.
-  # See http://about.travis-ci.org/docs/user/build-configuration/ to learn more
-  # about configuring notification recipients and more.
   email: false
