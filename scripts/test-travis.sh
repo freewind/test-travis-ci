@@ -1,5 +1,4 @@
 #!/bin/sh
-echo ==========
-echo hello
-echo world
-echo ==========
+git remote -v
+git status
+git log
