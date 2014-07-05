@@ -9,5 +9,5 @@ echo "========== " `pwd` "=========="
 ls -al
 
 echo "========== " `pwd`/conf/ "========="
-ls -al /conf/
+ls -al ./conf/
 
