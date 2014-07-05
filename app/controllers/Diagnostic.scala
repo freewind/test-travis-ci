@@ -19,9 +19,9 @@ trait DiagnosticController {
   }
 
   def paths = Action {
-    Ok(Json.obj("play.current.path" -> Play.current.path,
-      """play.getFile(".")""" -> Play.current.getFile("."),
-      ".build_version" -> Play.current.getFile("conf/.build_version")
+    Ok(Json.obj("play.current.path" -> Play.current.path.getAbsolutePath,
+      """play.getFile(".")""" -> Play.current.getFile(".").getAbsolutePath,
+      ".build_version" -> Play.current.getFile("conf/.build_version").getAbsolutePath
     ))
   }
 
