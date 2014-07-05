@@ -11,7 +11,7 @@ before_script:
 - unzip -q play-${PLAY_VERSION}.zip
 script: play-${PLAY_VERSION}/play test
 after_success:
-- "./scripts/update_build_version.sh"
+- "./scripts/update_build_version_on_heroku.sh $TRAVIS_BUILD_NUMBER"
 notifications:
   email: false
 deploy:
