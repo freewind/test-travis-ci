@@ -1,4 +1,6 @@
 #!/bin/sh
+echo TRAVIS_PULL_REQUEST: $TRAVIS_PULL_REQUEST
+
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
     echo Starting to update .build_version file
