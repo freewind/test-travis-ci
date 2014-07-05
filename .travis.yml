@@ -10,6 +10,7 @@ script: play-${PLAY_VERSION}/play test
 after_success:
   - echo $TRAVIS_JOB_ID > .build_version
   - git commit -a -m "Committed by Travis-CI build number: $TRAVIS_JOB_ID"
+  - git push origin master
 notifications:
   # Email notifications are disabled to not annoy anybody.
   # See http://about.travis-ci.org/docs/user/build-configuration/ to learn more
