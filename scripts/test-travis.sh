@@ -6,7 +6,6 @@ cat .build_version
 
 git add .build_version
 
-git remote -v
 git status
 
 git config --global user.email "travis-ci@travis-ci.org"
@@ -17,5 +16,8 @@ git --no-pager log --stat -3
 
 git remote add token https://${GH_TOKEN}@github.com/freewind/test-travis-ci.git
 git push token master
+
+git remote -v
+git status
 
 echo done
