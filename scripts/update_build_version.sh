@@ -1,9 +1,9 @@
 #!/bin/sh
 echo TRAVIS_PULL_REQUEST: $TRAVIS_PULL_REQUEST
 
-if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
 
-    echo Starting to update .build_version file
+    echo -e "Starting to update .build_version file"
 
     pwd
 
@@ -27,6 +27,6 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
     git status
 
-    echo done updating .build_version
+    echo -e "done updating .build_version"
 
 fi
