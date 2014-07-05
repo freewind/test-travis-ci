@@ -9,8 +9,8 @@ git add .build_version
 git remote -v
 git status
 
-git config --global.email "travis-ci@travis-ci.org"
-git config --global.username "travis-ci"
+git config --global user.email "travis-ci@travis-ci.org"
+git config --global user.name "travis-ci"
 git commit -m "update .build_version"
 
 git --no-pager log --stat
