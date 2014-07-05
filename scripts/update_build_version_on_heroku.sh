@@ -1,7 +1,5 @@
 #!/bin/sh
-buildVersion = $1
-
-echo -e "build version: $buildVersion"
+buildVersion=$1
 
 echo $buildVersion > conf/.build_version
 
