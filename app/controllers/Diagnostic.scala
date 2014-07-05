@@ -19,7 +19,10 @@ trait DiagnosticController {
   }
 
   def paths = Action {
-    Ok(Json.obj("play.current.path" -> Play.current.path, """play.getFile(".")""" -> Play.current.getFile(".")))
+    Ok(Json.obj("play.current.path" -> Play.current.path,
+      """play.getFile(".")""" -> Play.current.getFile("."),
+      ".build_version" -> Play.current.getFile("conf/.build_version")
+    ))
   }
 
   private def readVersion = getVersionFile.fold("no .build_version file found")(FileUtils.readFileToString)
