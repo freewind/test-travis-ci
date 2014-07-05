@@ -10,9 +10,14 @@ object Application extends Controller {
   }
 
   def hello = Action(parse.json) { request =>
-    val name = request.body \ "name"
-    val json = Json.obj(name.as[String] -> "welcome")
-    Ok(json)
+    request.body.validate[HelloName].asOpt match {
+      case Some(HelloName(name)) => Ok(Json.obj(name -> "welcome"))
+      case _ => BadRequest
+    }
   }
+
+  case class HelloName(name: String)
+
+  implicit val helloNameReads = Json.reads[HelloName]
 
 }
