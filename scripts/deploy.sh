@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# this file is NOT used
+
 REMOTE=play@SERVER_IP
 REMOTE_APP=/home/play/PROJECT_NAME/
 
