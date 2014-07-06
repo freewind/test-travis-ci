@@ -7,7 +7,7 @@ import java.io.File
 import play.api.libs.json.Json
 
 object Diagnostic extends Controller with DiagnosticController with VersionFileFinder {
-  override def getVersionFile = Some(Play.current.getFile("conf/.build_version")).filter(_.isFile)
+  override def getVersionFile = Some(Play.current.getFile("build_version")).filter(_.isFile)
 }
 
 
@@ -21,11 +21,11 @@ trait DiagnosticController {
   def paths = Action {
     Ok(Json.obj("play.current.path" -> Play.current.path.getAbsolutePath,
       """play.getFile(".")""" -> Play.current.getFile(".").getAbsolutePath,
-      ".build_version" -> Play.current.getFile("conf/.build_version").getAbsolutePath
+      "build_version" -> Play.current.getFile("build_version").getAbsolutePath
     ))
   }
 
-  private def readVersion = getVersionFile.fold("no .build_version file found")(FileUtils.readFileToString)
+  private def readVersion = getVersionFile.fold("no build_version file found")(FileUtils.readFileToString)
 
 }
 
